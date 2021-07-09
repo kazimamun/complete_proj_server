@@ -5,6 +5,7 @@ const morgan = require('morgan');
 require('dotenv').config();
 
 const postRoute = require('./routes/postRoute');
+const userRoute = require('./routes/userRoute');
 
 const app = express();
 app.use(bodyParser.urlencoded({extended:false}));
@@ -14,6 +15,7 @@ app.use(morgan('dev'));
 
 //routes
 app.use('/api/blog', postRoute);
+app.use('/api/users', userRoute);
 
 
 const port = process.env.port || 4000;

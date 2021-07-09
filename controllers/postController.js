@@ -31,7 +31,7 @@ module.exports={
               console.log("found post: ", result[0]);
               res.send(result);
             }        
-          });
+        });
     },
     deletePostById(req, res){
         let {id} = req.params;
@@ -61,7 +61,9 @@ module.exports={
               }
         
               if (result.affectedRows == 0) {
-                return;
+                res.json({
+                    "message": `${id} no post updated`
+                })
               }
         
                 console.log("updated post: ", result);
