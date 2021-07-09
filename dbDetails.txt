@@ -1,0 +1,11 @@
+dbLink: https://www.freesqldatabase.com/
+user: kazimamun716@gmail.com
+password: KMrashid6679
+
+
+host : sql6.freesqldatabase.com
+Server: sql6.freemysqlhosting.net
+Name: sql6423865
+Username: sql6423865
+Password: KyN3JI5WNN
+Port number: 3306
