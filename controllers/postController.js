@@ -47,5 +47,25 @@ module.exports={
         
             console.log("deleted post with id: ", id);
           });
+    },
+    updateByPostId(req, res){ 
+        let {id} = req.params;
+        let {post_title, post_body, email} = req.body;
+        sql.query(
+            "UPDATE posts SET post_title = ?, post_body = ?, email = ? WHERE id = ?",
+            [post_title, post_body, email, id],
+            (err, result) => {
+              if (err) {
+                console.log("error: ", err);
+                return;
+              }
+        
+              if (result.affectedRows == 0) {
+                return;
+              }
+        
+                console.log("updated post: ", result);
+            }
+        );
     }
 }
