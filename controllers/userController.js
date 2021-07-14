@@ -6,7 +6,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 module.exports={
     register(req, res){
-        let {name, email, password, confirmPassword, gender, country} = req.body;
+        let {name, email, password, confirmPassword, gender} = req.body;
         let validate = registerValidator({name, email, password, confirmPassword}); 
         
         if (!validate.isValid){
@@ -18,7 +18,7 @@ module.exports={
                         if(err){
                             return serverError(res, err)
                         }
-                        sql.query("INSERT INTO users SET ?", {name, email, password: hash, gender, country}, (err, result) => {
+                        sql.query("INSERT INTO users SET ?", {name, email, password: hash, gender}, (err, result) => {
                             if (err) {
                               console.log("error: ", err);
                               return;
